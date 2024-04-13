@@ -1,0 +1,21 @@
+
+// Importation des éléments abstraits
+@import "abstracts/variables";
+
+// Importation des polices
+@import "base/_fonts";
+
+// Importation des styles globaux
+@import "base/_global";
+
+// Importation des layouts
+@import "layout/_header";
+@import "layout/_main";
+@import "layout/_footer";
+@import "layout/_restaurants";
+@import "layout/_loader";
+
+// Importation des composants
+@import "components/_buttons";
+@import "components/_cards";
+@import 'components/badges';

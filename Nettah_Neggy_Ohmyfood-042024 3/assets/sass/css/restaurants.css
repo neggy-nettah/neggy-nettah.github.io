@@ -1,0 +1,37 @@
+body {
+  max-width: 1440px;
+  margin: auto;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header_banniere--menu--img {
+  position: relative;
+}
+
+.header_img--menu--img {
+  width: 100%;
+  /* z-index: 20; */
+  height: auto;
+}
+
+.main_container--menu {
+  position: relative;
+  background-color: aqua;
+  width: 100%;
+  margin-top: -91px;
+  border-radius: 80px 80px 0 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main_container--menu__title {
+  display: flex;
+}/*# sourceMappingURL=restaurants.css.map */
