@@ -118,7 +118,7 @@
   </style>
 </head>
 <body>
-  <div class="announcement">DÉMO E-COMMERCE • Livraison offerte aujourd'hui • Paiement fictif pour cette présentation</div>
+  <div class="announcement">DÉMO E-COMMERCE • STRIPE TEST ACTIF • Aucun débit réel</div>
   <header>
     <div class="wrap">
       <nav>
@@ -126,7 +126,7 @@
         <div class="navlinks">
           <a href="#benefices">Bénéfices</a><a href="#avis">Avis</a><a href="#offre">L'offre</a><a href="#faq">FAQ</a>
         </div>
-        <button class="btn btn-primary js-buy">Acheter — 49,90 €</button>
+        <button class="btn btn-primary js-buy">Tester Stripe — 1,00 €</button>
       </nav>
     </div>
   </header>
@@ -138,7 +138,7 @@
         <h1>Le quotidien, <span class="gradient">en beaucoup plus simple.</span></h1>
         <p>NOVA réunit design, autonomie et simplicité dans un objet pensé pour vous faire gagner du temps chaque jour. Une page produit construite pour convertir — rapide, claire et parfaitement mobile.</p>
         <div class="hero-actions">
-          <button class="btn btn-primary js-buy">Commander maintenant <span>→</span></button>
+          <button class="btn btn-primary js-buy">Tester le paiement Stripe <span>→</span></button>
           <a class="btn btn-ghost" href="#benefices">Découvrir le produit</a>
         </div>
         <div class="micro"><span>✓ <b>Expédition 24/48 h</b></span><span>✓ <b>30 jours satisfait ou remboursé</b></span><span>✓ <b>Paiement sécurisé</b></span></div>
@@ -217,9 +217,9 @@
           </div>
           <div class="paybox">
             <h3>Votre NOVA</h3>
-            <p>Prix de démonstration. Le véritable checkout Stripe pourra être branché ici avec gestion automatique du paiement et de la confirmation.</p>
-            <div style="display:flex;justify-content:space-between;padding:16px 0;border-top:1px solid #e6e8eb;border-bottom:1px solid #e6e8eb;margin-top:18px"><span>Total</span><strong>49,90 €</strong></div>
-            <button class="btn btn-primary js-buy">Passer au paiement →</button>
+            <p>Checkout Stripe réellement connecté en mode TEST. Le formulaire de paiement est hébergé par Stripe et aucun débit réel n'est effectué.</p>
+            <div style="display:flex;justify-content:space-between;padding:16px 0;border-top:1px solid #e6e8eb;border-bottom:1px solid #e6e8eb;margin-top:18px"><span>Montant du test Stripe</span><strong>1,00 €</strong></div>
+            <button class="btn btn-primary js-buy">Ouvrir Stripe Checkout →</button>
             <div class="secure"><span>🔒 SSL</span><span>VISA</span><span>Mastercard</span><span>Apple Pay</span></div>
           </div>
         </div>
@@ -231,9 +231,9 @@
         <div style="text-align:center"><div class="section-kicker">FAQ</div><h2>Les dernières questions.</h2></div>
         <div class="faq">
           <details><summary>Quand vais-je recevoir ma commande ?</summary><p>Pour cette démonstration, aucune commande réelle n'est créée. Sur la version commerciale, les délais, transporteurs et suivis sont affichés ici.</p></details>
-          <details><summary>Le paiement est-il sécurisé ?</summary><p>La version finale peut utiliser Stripe Checkout : les données de carte sont alors traitées par Stripe et ne transitent pas directement par le site.</p></details>
+          <details><summary>Le paiement est-il sécurisé ?</summary><p>Oui. Cette démo est maintenant reliée à Stripe Checkout en mode test : les données de carte de test sont saisies sur la page Stripe et ne transitent pas directement par ce site.</p></details>
           <details><summary>Puis-je retourner le produit ?</summary><p>Oui, la démo présente une politique de retour de 30 jours. Sur un vrai site, les conditions seraient alignées avec vos CGV et vos obligations légales.</p></details>
-          <details><summary>Est-ce une vraie boutique ?</summary><p>Non. Il s'agit volontairement d'une démo publique destinée à montrer le niveau de finition possible. Aucun paiement réel n'est activé.</p></details>
+          <details><summary>Est-ce une vraie boutique ?</summary><p>Non. Il s'agit d'une démo publique. Stripe est réellement intégré mais fonctionne en environnement de test : aucun argent réel n'est encaissé.</p></details>
         </div>
       </div>
     </section>
@@ -243,26 +243,23 @@
     <div class="wrap footerline"><div><span class="logo">NO<span>VA</span></span><br><br>Démo e-commerce — aucun produit réel n'est vendu.</div><div>Mentions légales • CGV • Confidentialité • Cookies</div></div>
   </footer>
 
-  <div class="mobile-buy"><div class="price-mini"><strong>49,90 €</strong><span>Livraison offerte</span></div><button class="btn btn-primary js-buy">Acheter</button></div>
-
-  <div class="modal" id="checkout" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modalbox">
-      <div style="font-size:12px;font-weight:900;color:#68707d;letter-spacing:.1em">CHECKOUT • DÉMONSTRATION</div>
-      <h3 id="modal-title">La partie Stripe viendrait ici.</h3>
-      <p>Sur la version réelle, ce bouton crée une session Stripe Checkout et redirige le client vers un paiement sécurisé.</p>
-      <div class="notice"><strong>Aucun paiement ne sera effectué.</strong><br>Cette démo n'enregistre aucune carte, aucune commande et aucune donnée bancaire.</div>
-      <div class="modal-actions"><button class="btn btn-dark" id="closeModal">Fermer</button><button class="btn btn-primary" id="fakePay">Simuler le succès</button></div>
-    </div>
-  </div>
+  <div class="mobile-buy"><div class="price-mini"><strong>Stripe TEST</strong><span>Montant simulé : 1,00 €</span></div><button class="btn btn-primary js-buy">Tester</button></div>
 
   <script>
-    const modal=document.getElementById('checkout');
-    document.querySelectorAll('.js-buy').forEach(b=>b.addEventListener('click',()=>modal.classList.add('open')));
-    document.getElementById('closeModal').addEventListener('click',()=>modal.classList.remove('open'));
-    modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
-    document.getElementById('fakePay').addEventListener('click',()=>{
-      document.querySelector('.modalbox').innerHTML='<div style="font-size:52px">✓</div><h3>Paiement simulé avec succès.</h3><p>Dans une vraie boutique, Stripe confirmerait ici le paiement, puis le site afficherait le numéro de commande et déclencherait l\'email de confirmation.</p><button class="btn btn-primary" style="width:100%;margin-top:12px" onclick="location.reload()">Revenir à la démo</button>';
+    const STRIPE_TEST_URL='https://buy.stripe.com/test_aFacN42Fk3dE8ieaXO5sA00';
+    document.querySelectorAll('.js-buy').forEach(button=>{
+      button.addEventListener('click',()=>{ window.location.href=STRIPE_TEST_URL; });
     });
+    const params=new URLSearchParams(window.location.search);
+    if(params.get('payment')==='success'){
+      const box=document.createElement('div');
+      box.setAttribute('role','status');
+      box.style.cssText='position:fixed;top:88px;left:50%;transform:translateX(-50%);z-index:100;background:#b7ff5a;color:#10130b;padding:16px 22px;border-radius:16px;font-weight:900;box-shadow:0 20px 60px rgba(0,0,0,.35);max-width:calc(100% - 24px);text-align:center';
+      box.textContent='✓ Retour Stripe reçu — paiement TEST terminé.';
+      document.body.appendChild(box);
+      setTimeout(()=>box.remove(),7000);
+      history.replaceState({},'',location.pathname);
+    }
   </script>
 </body>
 </html>
