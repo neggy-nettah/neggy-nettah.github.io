@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0c10" />
+  <meta name="description" content="Démo de page de vente e-commerce premium — NOVA." />
+  <title>NOVA — Démo e-commerce</title>
+  <style>
+    :root{
+      --bg:#0b0c10;--panel:#11131a;--panel2:#171a22;--text:#f6f7fb;--muted:#aeb4c0;
+      --accent:#b7ff5a;--accent2:#6ce5ff;--line:rgba(255,255,255,.09);--shadow:0 20px 80px rgba(0,0,0,.35);
+      --radius:26px
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:
+      radial-gradient(900px 500px at 80% -10%,rgba(108,229,255,.13),transparent 60%),
+      radial-gradient(700px 500px at 10% 10%,rgba(183,255,90,.11),transparent 60%),
+      var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .wrap{width:min(1180px,calc(100% - 34px));margin:auto}
+    .announcement{background:var(--accent);color:#10130b;text-align:center;padding:10px 16px;font-weight:850;font-size:13px;letter-spacing:.02em}
+    header{position:sticky;top:0;z-index:30;backdrop-filter:blur(18px);background:rgba(11,12,16,.72);border-bottom:1px solid var(--line)}
+    nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{font-weight:950;letter-spacing:-.05em;font-size:25px}.logo span{color:var(--accent)}
+    .navlinks{display:flex;gap:26px;color:#cfd3dc;font-size:14px}.navlinks a:hover{color:#fff}
+    .btn{border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;padding:14px 20px;font-weight:850;transition:.2s transform,.2s opacity,.2s background}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--accent);color:#0d1108;box-shadow:0 12px 35px rgba(183,255,90,.18)}
+    .btn-dark{background:#fff;color:#0b0c10}
+    .btn-ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid var(--line)}
+    .hero{padding:74px 0 48px;display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border:1px solid rgba(183,255,90,.25);background:rgba(183,255,90,.07);border-radius:999px;color:#d6ff9e;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}
+    h1{font-size:clamp(48px,7vw,88px);line-height:.94;letter-spacing:-.065em;margin:22px 0 24px;max-width:760px}
+    .gradient{background:linear-gradient(90deg,#fff 5%,#c4cad5 46%,#b7ff5a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{font-size:18px;line-height:1.65;color:var(--muted);max-width:650px;margin:0 0 28px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .micro{margin-top:18px;color:#888f9a;font-size:12px;display:flex;gap:18px;flex-wrap:wrap}
+    .micro b{color:#e3e6eb}
+    .product-stage{position:relative;min-height:560px;border-radius:38px;border:1px solid var(--line);background:
+      radial-gradient(circle at 65% 25%,rgba(108,229,255,.24),transparent 27%),
+      radial-gradient(circle at 35% 75%,rgba(183,255,90,.18),transparent 28%),
+      linear-gradient(145deg,#181b24,#0e1016);overflow:hidden;box-shadow:var(--shadow)}
+    .orb{position:absolute;border-radius:50%;filter:blur(2px)}
+    .orb.a{width:200px;height:200px;background:rgba(183,255,90,.18);left:-80px;bottom:40px}
+    .orb.b{width:180px;height:180px;background:rgba(108,229,255,.14);right:-50px;top:55px}
+    .product{position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%) rotate(-6deg);width:270px;height:380px;border-radius:56px;background:
+      linear-gradient(145deg,#f4f5f7 0%,#c8cbd1 42%,#9297a1 62%,#f6f6f7 100%);
+      box-shadow:inset -20px -20px 38px rgba(0,0,0,.18),inset 20px 20px 26px rgba(255,255,255,.7),0 50px 90px rgba(0,0,0,.45)}
+    .product:before{content:"NOVA";position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);font-size:32px;letter-spacing:.28em;font-weight:950;color:#181a1f}
+    .product:after{content:"SMART ESSENTIAL";position:absolute;left:50%;top:51%;transform:translate(-50%,-50%);font-size:8px;letter-spacing:.38em;font-weight:900;color:#555b65;white-space:nowrap}
+    .screen{position:absolute;left:50%;bottom:42px;transform:translateX(-50%);width:125px;height:66px;background:#0b0d0f;border-radius:21px;border:2px solid rgba(255,255,255,.5);display:grid;place-items:center;color:var(--accent);font-size:14px;font-weight:900;letter-spacing:.06em}
+    .badge{position:absolute;padding:11px 14px;border-radius:16px;background:rgba(17,19,26,.84);border:1px solid var(--line);backdrop-filter:blur(14px);box-shadow:0 12px 30px rgba(0,0,0,.2);font-size:12px;font-weight:800}
+    .badge.one{top:18%;left:7%}.badge.two{right:7%;top:32%}.badge.three{left:10%;bottom:16%}
+    .stars{color:#f9d86d;letter-spacing:2px}
+    .trust{padding:24px 0 78px}
+    .trustbox{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+    .trustitem{background:rgba(255,255,255,.025);padding:23px;text-align:center}
+    .trustitem strong{display:block;font-size:18px;margin-bottom:4px}.trustitem span{color:#8f96a3;font-size:12px}
+    section{padding:86px 0}
+    .section-kicker{color:var(--accent);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.12em}
+    h2{font-size:clamp(34px,5vw,58px);line-height:1;letter-spacing:-.045em;margin:12px 0 18px}
+    .lead{color:var(--muted);font-size:17px;line-height:1.65;max-width:720px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:var(--radius);padding:28px;min-height:245px}
+    .icon{width:47px;height:47px;border-radius:15px;background:rgba(183,255,90,.12);border:1px solid rgba(183,255,90,.2);display:grid;place-items:center;font-size:21px;margin-bottom:35px}
+    .card h3{font-size:22px;margin:0 0 10px;letter-spacing:-.025em}.card p{margin:0;color:#9da4b0;line-height:1.65;font-size:14px}
+    .showcase{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:38px}
+    .bigpanel,.sidepanel{border-radius:30px;border:1px solid var(--line);overflow:hidden;background:#11131a}
+    .bigpanel{min-height:500px;padding:44px;display:flex;flex-direction:column;justify-content:flex-end;background:
+      radial-gradient(500px 350px at 60% 25%,rgba(183,255,90,.13),transparent 60%),
+      linear-gradient(135deg,#171a22,#0f1117)}
+    .metric{font-size:100px;font-weight:950;letter-spacing:-.08em;color:var(--accent);line-height:.78}
+    .bigpanel h3{font-size:30px;margin:22px 0 8px}.bigpanel p,.sidepanel p{color:#959ca8;line-height:1.6;margin:0}
+    .sidecol{display:grid;gap:18px}.sidepanel{padding:30px;min-height:240px}
+    .sidepanel .num{font-size:54px;font-weight:950;letter-spacing:-.05em;margin-bottom:30px}
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+    .review{padding:28px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.025)}
+    .review p{color:#c8ccd4;line-height:1.6;min-height:108px}.person{display:flex;align-items:center;gap:12px;margin-top:20px}
+    .avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(145deg,#dce1e8,#737b89);display:grid;place-items:center;color:#111;font-weight:900}
+    .person small{color:#888f99}
+    .offer{border:1px solid rgba(183,255,90,.23);border-radius:34px;background:
+      radial-gradient(600px 300px at 90% 10%,rgba(183,255,90,.11),transparent 55%),
+      #101218;padding:48px;display:grid;grid-template-columns:1fr .8fr;gap:42px;align-items:center}
+    .price{font-size:58px;font-weight:950;letter-spacing:-.055em;margin:18px 0 4px}.old{font-size:20px;color:#747b87;text-decoration:line-through;margin-left:10px}
+    .checklist{display:grid;gap:12px;margin:28px 0}.check{display:flex;gap:12px;align-items:flex-start;color:#dfe3e9}.tick{color:var(--accent);font-weight:950}
+    .paybox{background:#fff;color:#101218;border-radius:26px;padding:28px;box-shadow:var(--shadow)}
+    .paybox h3{font-size:26px;margin:0 0 8px}.paybox p{color:#616873;font-size:14px;line-height:1.55}
+    .secure{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;color:#69717d;font-size:11px;margin-top:13px}
+    .paybox .btn{width:100%;margin-top:14px;padding:17px}
+    .faq{max-width:860px;margin:35px auto 0}.faq details{border-top:1px solid var(--line);padding:20px 0}.faq details:last-child{border-bottom:1px solid var(--line)}
+    summary{cursor:pointer;font-weight:800;list-style:none;display:flex;justify-content:space-between;gap:20px}summary::-webkit-details-marker{display:none}
+    summary:after{content:"+";color:var(--accent);font-size:22px}.faq p{color:#9aa1ad;line-height:1.6;margin-bottom:0}
+    footer{padding:55px 0 95px;border-top:1px solid var(--line);color:#777e89;font-size:12px}
+    .footerline{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .mobile-buy{display:none}
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(10px);z-index:80;display:none;align-items:center;justify-content:center;padding:22px}
+    .modal.open{display:flex}.modalbox{width:min(520px,100%);background:#fff;color:#11151b;border-radius:28px;padding:30px;box-shadow:0 40px 120px rgba(0,0,0,.5)}
+    .modalbox h3{font-size:30px;margin:4px 0 10px;letter-spacing:-.035em}.modalbox p{color:#626a76;line-height:1.55}
+    .notice{padding:14px 16px;border-radius:14px;background:#f3f5f7;color:#30363e;font-size:13px;margin:18px 0}.modal-actions{display:flex;gap:10px}.modal-actions button{flex:1}
+    @media(max-width:900px){
+      .navlinks{display:none}.hero{grid-template-columns:1fr;padding-top:46px;gap:34px}.product-stage{min-height:500px}
+      .trustbox,.grid3,.reviews{grid-template-columns:1fr 1fr}.showcase,.offer{grid-template-columns:1fr}.offer{padding:30px}
+    }
+    @media(max-width:620px){
+      .wrap{width:min(100% - 22px,1180px)}nav{height:62px}header .btn{display:none}
+      h1{font-size:50px}.hero p{font-size:16px}.hero-actions .btn{width:100%}.product-stage{min-height:430px;border-radius:28px}
+      .product{width:220px;height:310px;border-radius:48px}.badge.two{right:3%}.badge.one{left:3%}.badge.three{left:4%;bottom:10%}
+      .trustbox,.grid3,.reviews{grid-template-columns:1fr}.trustitem{padding:18px}.card{min-height:auto}.showcase{display:block}.sidecol{margin-top:18px}
+      .bigpanel{min-height:400px;padding:28px}.metric{font-size:78px}.offer{border-radius:26px}.price{font-size:48px}
+      .mobile-buy{display:flex;position:fixed;bottom:12px;left:12px;right:12px;z-index:50;background:rgba(17,19,26,.94);border:1px solid var(--line);backdrop-filter:blur(18px);border-radius:18px;padding:10px;align-items:center;gap:12px;box-shadow:0 18px 60px rgba(0,0,0,.45)}
+      .mobile-buy .price-mini{flex:1;padding-left:6px}.mobile-buy strong{display:block;font-size:17px}.mobile-buy span{font-size:10px;color:#9097a2}
+      footer{padding-bottom:120px}
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">DÉMO E-COMMERCE • Livraison offerte aujourd'hui • Paiement fictif pour cette présentation</div>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="logo" href="#">NO<span>VA</span></a>
+        <div class="navlinks">
+          <a href="#benefices">Bénéfices</a><a href="#avis">Avis</a><a href="#offre">L'offre</a><a href="#faq">FAQ</a>
+        </div>
+        <button class="btn btn-primary js-buy">Acheter — 49,90 €</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Nouvelle génération</div>
+        <h1>Le quotidien, <span class="gradient">en beaucoup plus simple.</span></h1>
+        <p>NOVA réunit design, autonomie et simplicité dans un objet pensé pour vous faire gagner du temps chaque jour. Une page produit construite pour convertir — rapide, claire et parfaitement mobile.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary js-buy">Commander maintenant <span>→</span></button>
+          <a class="btn btn-ghost" href="#benefices">Découvrir le produit</a>
+        </div>
+        <div class="micro"><span>✓ <b>Expédition 24/48 h</b></span><span>✓ <b>30 jours satisfait ou remboursé</b></span><span>✓ <b>Paiement sécurisé</b></span></div>
+      </div>
+
+      <div class="product-stage" aria-label="Visuel produit NOVA">
+        <div class="orb a"></div><div class="orb b"></div>
+        <div class="product"><div class="screen">READY • 100%</div></div>
+        <div class="badge one"><span class="stars">★★★★★</span><br>4,9/5 • 1 248 avis</div>
+        <div class="badge two">⚡ Charge rapide<br><small style="color:#8f96a3">USB-C • 35 min</small></div>
+        <div class="badge three">♻︎ Conçu pour durer<br><small style="color:#8f96a3">Garantie 2 ans</small></div>
+      </div>
+    </div>
+
+    <div class="wrap trust">
+      <div class="trustbox">
+        <div class="trustitem"><strong>4,9/5</strong><span>Note moyenne clients</span></div>
+        <div class="trustitem"><strong>10 000+</strong><span>Clients satisfaits</span></div>
+        <div class="trustitem"><strong>24–48 h</strong><span>Expédition rapide</span></div>
+        <div class="trustitem"><strong>30 jours</strong><span>Pour changer d'avis</span></div>
+      </div>
+    </div>
+
+    <section id="benefices">
+      <div class="wrap">
+        <div class="section-kicker">Pourquoi NOVA ?</div>
+        <h2>Moins de friction.<br>Plus d'usage.</h2>
+        <p class="lead">Une bonne page de vente ne récite pas une fiche technique : elle montre immédiatement pourquoi le produit mérite une place dans le quotidien du client.</p>
+        <div class="grid3">
+          <div class="card"><div class="icon">⚡</div><h3>Prêt en quelques secondes</h3><p>Une prise en main immédiate, sans configuration compliquée. On ouvre, on utilise, c'est tout.</p></div>
+          <div class="card"><div class="icon">◉</div><h3>Pensé dans les détails</h3><p>Format compact, matériaux agréables et interface lisible. Chaque élément sert l'expérience.</p></div>
+          <div class="card"><div class="icon">↗</div><h3>Fait pour suivre votre rythme</h3><p>Autonomie longue durée, recharge USB-C et conception robuste pour accompagner vos journées.</p></div>
+        </div>
+
+        <div class="showcase">
+          <div class="bigpanel">
+            <div class="metric">72h</div>
+            <h3>Une autonomie qui tient la distance.</h3>
+            <p>Trois jours d'utilisation type avant de penser à recharger. Le genre de bénéfice qu'un client comprend en une seconde.</p>
+          </div>
+          <div class="sidecol">
+            <div class="sidepanel"><div class="num">35<span style="color:var(--accent)">min</span></div><h3>Recharge express</h3><p>Récupérez l'essentiel de votre autonomie pendant une pause.</p></div>
+            <div class="sidepanel"><div class="num">2<span style="color:var(--accent)">ans</span></div><h3>Garantie incluse</h3><p>Un signal de confiance simple qui réduit l'hésitation avant l'achat.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="avis">
+      <div class="wrap">
+        <div class="section-kicker">Preuve sociale</div>
+        <h2>Ils l'utilisent déjà.</h2>
+        <p class="lead">Les témoignages ci-dessous sont fictifs pour cette démonstration. Sur un vrai site, ils seraient remplacés par des avis clients vérifiés.</p>
+        <div class="reviews">
+          <div class="review"><div class="stars">★★★★★</div><p>“Je pensais que ce serait un gadget de plus. Finalement, je l'utilise tous les jours et j'en ai commandé un deuxième.”</p><div class="person"><div class="avatar">CM</div><div><strong>Camille M.</strong><br><small>Achat vérifié • Démo</small></div></div></div>
+          <div class="review"><div class="stars">★★★★★</div><p>“Le produit est encore plus propre en vrai. Le packaging et la finition donnent une vraie impression premium.”</p><div class="person"><div class="avatar">JL</div><div><strong>Julien L.</strong><br><small>Achat vérifié • Démo</small></div></div></div>
+          <div class="review"><div class="stars">★★★★★</div><p>“Simple, rapide et efficace. J'ai compris en deux minutes pourquoi tout le monde en parlait.”</p><div class="person"><div class="avatar">SA</div><div><strong>Sarah A.</strong><br><small>Achat vérifié • Démo</small></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="offre">
+      <div class="wrap">
+        <div class="offer">
+          <div>
+            <div class="section-kicker">Offre de lancement</div>
+            <h2>Tout ce qu'il faut.<br>Rien de superflu.</h2>
+            <div class="price">49,90 € <span class="old">69,90 €</span></div>
+            <p class="lead">Livraison offerte aujourd'hui. Garantie 2 ans et retour sous 30 jours.</p>
+            <div class="checklist">
+              <div class="check"><span class="tick">✓</span> 1 × NOVA Smart Essential</div>
+              <div class="check"><span class="tick">✓</span> Câble USB-C premium inclus</div>
+              <div class="check"><span class="tick">✓</span> Guide de démarrage rapide</div>
+              <div class="check"><span class="tick">✓</span> Garantie commerciale 2 ans</div>
+            </div>
+          </div>
+          <div class="paybox">
+            <h3>Votre NOVA</h3>
+            <p>Prix de démonstration. Le véritable checkout Stripe pourra être branché ici avec gestion automatique du paiement et de la confirmation.</p>
+            <div style="display:flex;justify-content:space-between;padding:16px 0;border-top:1px solid #e6e8eb;border-bottom:1px solid #e6e8eb;margin-top:18px"><span>Total</span><strong>49,90 €</strong></div>
+            <button class="btn btn-primary js-buy">Passer au paiement →</button>
+            <div class="secure"><span>🔒 SSL</span><span>VISA</span><span>Mastercard</span><span>Apple Pay</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div style="text-align:center"><div class="section-kicker">FAQ</div><h2>Les dernières questions.</h2></div>
+        <div class="faq">
+          <details><summary>Quand vais-je recevoir ma commande ?</summary><p>Pour cette démonstration, aucune commande réelle n'est créée. Sur la version commerciale, les délais, transporteurs et suivis sont affichés ici.</p></details>
+          <details><summary>Le paiement est-il sécurisé ?</summary><p>La version finale peut utiliser Stripe Checkout : les données de carte sont alors traitées par Stripe et ne transitent pas directement par le site.</p></details>
+          <details><summary>Puis-je retourner le produit ?</summary><p>Oui, la démo présente une politique de retour de 30 jours. Sur un vrai site, les conditions seraient alignées avec vos CGV et vos obligations légales.</p></details>
+          <details><summary>Est-ce une vraie boutique ?</summary><p>Non. Il s'agit volontairement d'une démo publique destinée à montrer le niveau de finition possible. Aucun paiement réel n'est activé.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footerline"><div><span class="logo">NO<span>VA</span></span><br><br>Démo e-commerce — aucun produit réel n'est vendu.</div><div>Mentions légales • CGV • Confidentialité • Cookies</div></div>
+  </footer>
+
+  <div class="mobile-buy"><div class="price-mini"><strong>49,90 €</strong><span>Livraison offerte</span></div><button class="btn btn-primary js-buy">Acheter</button></div>
+
+  <div class="modal" id="checkout" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modalbox">
+      <div style="font-size:12px;font-weight:900;color:#68707d;letter-spacing:.1em">CHECKOUT • DÉMONSTRATION</div>
+      <h3 id="modal-title">La partie Stripe viendrait ici.</h3>
+      <p>Sur la version réelle, ce bouton crée une session Stripe Checkout et redirige le client vers un paiement sécurisé.</p>
+      <div class="notice"><strong>Aucun paiement ne sera effectué.</strong><br>Cette démo n'enregistre aucune carte, aucune commande et aucune donnée bancaire.</div>
+      <div class="modal-actions"><button class="btn btn-dark" id="closeModal">Fermer</button><button class="btn btn-primary" id="fakePay">Simuler le succès</button></div>
+    </div>
+  </div>
+
+  <script>
+    const modal=document.getElementById('checkout');
+    document.querySelectorAll('.js-buy').forEach(b=>b.addEventListener('click',()=>modal.classList.add('open')));
+    document.getElementById('closeModal').addEventListener('click',()=>modal.classList.remove('open'));
+    modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
+    document.getElementById('fakePay').addEventListener('click',()=>{
+      document.querySelector('.modalbox').innerHTML='<div style="font-size:52px">✓</div><h3>Paiement simulé avec succès.</h3><p>Dans une vraie boutique, Stripe confirmerait ici le paiement, puis le site afficherait le numéro de commande et déclencherait l\'email de confirmation.</p><button class="btn btn-primary" style="width:100%;margin-top:12px" onclick="location.reload()">Revenir à la démo</button>';
+    });
+  </script>
+</body>
+</html>
